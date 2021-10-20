@@ -12,3 +12,4 @@ for t in range(1, T+1):
         print(arr[i], end='')
         if i % 10 == 9:
             print()
+    print()
