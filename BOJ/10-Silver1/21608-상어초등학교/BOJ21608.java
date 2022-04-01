@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 
-class Student {
+class Student21608 {
     int num;
     ArrayList<Integer> friends;
 
-    public Student(int num, ArrayList<Integer> friends) {
+    public Student21608(int num, ArrayList<Integer> friends) {
         this.num = num;
         this.friends = friends;
     }
@@ -14,8 +14,8 @@ class Student {
 
 public class BOJ21608 {
     static int N;
-    static ArrayList<Student> students;
-    static Student[][] seat;
+    static ArrayList<Student21608> students;
+    static Student21608[][] seat;
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
 
@@ -25,14 +25,14 @@ public class BOJ21608 {
 
         N = Integer.parseInt(br.readLine());
         students = new ArrayList<>();
-        seat = new Student[N][N];
+        seat = new Student21608[N][N];
         for(int i = 0; i < N*N; i++) {
             st = new StringTokenizer(br.readLine());
             int s = Integer.parseInt(st.nextToken());
             ArrayList<Integer> tmp = new ArrayList<>();
             for(int j = 0; j < 4; j++)
                 tmp.add(Integer.parseInt(st.nextToken()));
-            students.add(new Student(s, tmp));
+            students.add(new Student21608(s, tmp));
         }
 
         findSeat();
@@ -41,7 +41,7 @@ public class BOJ21608 {
 
     private static void findSeat() {
         for(int s = 0; s < N*N; s++) {
-            Student student = students.get(s);
+            Student21608 student = students.get(s);
             ArrayList<Point> available = new ArrayList<>();
 
             // 1. 비어 있는 칸 중에서 좋아하는 학생이 인접한 칸에 가장 많은 칸

@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-class Data {
+class Data12503 {
     char[] num;
     int S;
     int B;
 
-    public Data(char[] num, int S, int B) {
+    public Data12503(char[] num, int S, int B) {
         this.num = num;
         this.S = S; // 스트라이크
         this.B = B; // 볼
@@ -14,7 +14,7 @@ class Data {
 }
 
 public class BOJ2503 {
-    static ArrayList<Data> dataList;
+    static ArrayList<Data12503> dataList;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -26,7 +26,7 @@ public class BOJ2503 {
             int num = Integer.parseInt(st.nextToken());
             int strike = Integer.parseInt(st.nextToken());
             int ball = Integer.parseInt(st.nextToken());
-            dataList.add(new Data(Integer.toString(num).toCharArray(), strike, ball));
+            dataList.add(new Data12503(Integer.toString(num).toCharArray(), strike, ball));
         }
         System.out.println(baseball());
     }
@@ -40,7 +40,7 @@ public class BOJ2503 {
             possible.add(c);
         }
 
-        for(Data d : dataList) {
+        for(Data12503 d : dataList) {
             ArrayList<char[]> tmp = new ArrayList<>();
             for(char[] c : possible) {
                 int sCnt = isStrike(d, c); // 스트라이크 횟수
@@ -53,14 +53,14 @@ public class BOJ2503 {
         return possible.size();
     }
 
-    private static int isStrike(Data d, char[] c) {
+    private static int isStrike(Data12503 d, char[] c) {
         int count = 0;
         for(int i = 0; i < 3; i++)
             if(d.num[i] == c[i]) count++;
         return count;
     }
 
-    private static int isBall(Data d, char[] c) {
+    private static int isBall(Data12503 d, char[] c) {
         int count = 0;
         for(int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {

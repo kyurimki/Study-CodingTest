@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-class FireBall {
+class FireBall20056 {
     int r, c, m, s, d; // (r, c): 위치, 질량, 속력, 방향
 
-    public FireBall(int r, int c, int m, int s, int d) {
+    public FireBall20056(int r, int c, int m, int s, int d) {
         this.r = r;
         this.c = c;
         this.m = m;
@@ -16,8 +16,8 @@ class FireBall {
 @SuppressWarnings("unchecked")
 public class BOJ20056 {
     static int N, M, K;
-    static Queue<FireBall> list;
-    static Queue<FireBall>[][] map;
+    static Queue<FireBall20056> list;
+    static Queue<FireBall20056>[][] map;
     
     static int[][] dir = {{-1, 0}, {-1, 1}, {0, 1}, {1, 1}, {1, 0}, {1, -1}, {0, -1}, {-1, -1}};
 
@@ -44,7 +44,7 @@ public class BOJ20056 {
             int d = Integer.parseInt(st.nextToken());
             int s = Integer.parseInt(st.nextToken());
 
-           list.offer(new FireBall(r, c, m, d, s));
+           list.offer(new FireBall20056(r, c, m, d, s));
         }
         
         while(K-- > 0) {
@@ -54,7 +54,7 @@ public class BOJ20056 {
 
         int sum = 0;
         while(!list.isEmpty()) {
-            FireBall fb = list.poll();
+            FireBall20056 fb = list.poll();
             sum += fb.m;
         }
         System.out.println(sum);
@@ -62,7 +62,7 @@ public class BOJ20056 {
 
     private static void move() {
         while(!list.isEmpty()) {
-            FireBall fb = list.poll();
+            FireBall20056 fb = list.poll();
             int r = fb.r;
             int c = fb.c;
             int d = fb.d;
@@ -81,8 +81,8 @@ public class BOJ20056 {
             for(int j = 0; j < N; j++) {
                 if(map[i][j].isEmpty()) continue;
                 if(map[i][j].size() == 1) {
-                    FireBall fb = map[i][j].poll();
-                    list.offer(new FireBall(i, j, fb.m, fb.s, fb.d));
+                    FireBall20056 fb = map[i][j].poll();
+                    list.offer(new FireBall20056(i, j, fb.m, fb.s, fb.d));
                     continue;
                 }
 
@@ -92,7 +92,7 @@ public class BOJ20056 {
                 boolean status = true;
                 int op = -1;
                 while(!map[i][j].isEmpty()) {
-                    FireBall fb = map[i][j].poll();
+                    FireBall20056 fb = map[i][j].poll();
                     mSum += fb.m;
                     sSum += fb.s;
                     if(op == -1) {
@@ -106,7 +106,7 @@ public class BOJ20056 {
                 
                 if(mSum < 5) continue;
                 for(int k = op; k < 8; k += 2) {
-                    list.offer(new FireBall(i, j, mSum/5, sSum/size, k));
+                    list.offer(new FireBall20056(i, j, mSum/5, sSum/size, k));
                 }
             }
         }

@@ -1,15 +1,15 @@
 import java.io.*;
 import java.util.*;
 
-class Node implements Comparable<Node> {
+class Node1753 implements Comparable<Node1753> {
     int vertex, weight;
 
-    public Node(int vertex, int weight) {
+    public Node1753(int vertex, int weight) {
         this.vertex = vertex;
         this.weight = weight;
     }
 
-    public int compareTo(Node o) {
+    public int compareTo(Node1753 o) {
         return this.weight-o.weight;
     }
 }
@@ -17,7 +17,7 @@ class Node implements Comparable<Node> {
 @SuppressWarnings("unchecked")
 public class BOJ1753 {
     static int V, E, K;
-    static ArrayList<Node>[] matrix;
+    static ArrayList<Node1753>[] matrix;
     static int[] dist;
     static boolean[] visited;
 
@@ -48,7 +48,7 @@ public class BOJ1753 {
             int v = Integer.parseInt(st.nextToken()); // to
             int w = Integer.parseInt(st.nextToken()); // 가중치
 
-            matrix[u].add(new Node(v, w));
+            matrix[u].add(new Node1753(v, w));
         }
 
         dijkstra();
@@ -64,20 +64,20 @@ public class BOJ1753 {
     }
 
     private static void dijkstra() {
-        PriorityQueue<Node> pq = new PriorityQueue<>();
-        pq.add(new Node(K, 0));
+        PriorityQueue<Node1753> pq = new PriorityQueue<>();
+        pq.add(new Node1753(K, 0));
 
         while(!pq.isEmpty()) {
-            Node n = pq.poll();
+            Node1753 n = pq.poll();
             if(visited[n.vertex])
                 continue;
             
             visited[n.vertex] = true;
 
-            for(Node o : matrix[n.vertex]) {
+            for(Node1753 o : matrix[n.vertex]) {
                 if(dist[o.vertex] > dist[n.vertex] + o.weight) {
                     dist[o.vertex] = dist[n.vertex] + o.weight;
-                    pq.add(new Node(o.vertex, dist[o.vertex]));
+                    pq.add(new Node1753(o.vertex, dist[o.vertex]));
                 }
             }
         }

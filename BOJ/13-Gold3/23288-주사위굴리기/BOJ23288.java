@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-class Dice {
+class Dice23288 {
     int top, bottom, left, right, up, down;
 
-    public Dice() {
+    public Dice23288() {
         this.top = 1;
         this.bottom = 6;
         this.left = 4;
@@ -21,7 +21,7 @@ public class BOJ23288 {
 
     static int[][] dir = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}}; // 우하좌상
 
-    static Dice dice;
+    static Dice23288 dice;
     static int curDir;
     static int[] cur;
 
@@ -45,7 +45,7 @@ public class BOJ23288 {
                 board[i][j] = Integer.parseInt(st.nextToken());
         }
 
-        dice = new Dice();
+        dice = new Dice23288();
         curDir = 0;
         cur = new int[] {0, 0};
         sum = 0;

@@ -1,12 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-class Route {
+class Route11657 {
     int start;
     int end;
     int value;
 
-    public Route(int start, int end, int value) {
+    public Route11657(int start, int end, int value) {
         this.start = start;
         this.end = end;
         this.value = value;
@@ -15,7 +15,7 @@ class Route {
 
 public class BOJ11657 {
     static int N, M;
-    static Route[] r;
+    static Route11657[] r;
     static long[] dist;
     static int INF = Integer.MAX_VALUE;
 
@@ -29,14 +29,14 @@ public class BOJ11657 {
         Arrays.fill(dist, INF);
 
         M = Integer.parseInt(st.nextToken());
-        r = new Route[M];
+        r = new Route11657[M];
         for(int m = 0; m < M; m++) {
             st = new StringTokenizer(br.readLine());
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
             int C = Integer.parseInt(st.nextToken());
 
-            r[m] = new Route(A, B, C);
+            r[m] = new Route11657(A, B, C);
         }
 
         if(bellmanFord(1))

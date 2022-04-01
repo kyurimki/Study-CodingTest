@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-class Tomato {
+class Tomato7576 {
     int x;
     int y;
 
-    Tomato(int x, int y) {
+    Tomato7576(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -16,7 +16,7 @@ public class BOJ7576 {
     static int n;
 
     static int[][] board;
-    static Queue<Tomato> q;
+    static Queue<Tomato7576> q;
 
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
@@ -29,14 +29,14 @@ public class BOJ7576 {
         m = Integer.parseInt(st.nextToken());
         n = Integer.parseInt(st.nextToken());
 
-        q = new LinkedList<Tomato>();
+        q = new LinkedList<Tomato7576>();
         board = new int[n][m];
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j < m; j++) {
                 board[i][j] = Integer.parseInt(st.nextToken());
                 if(board[i][j] == 1)
-                    q.add(new Tomato(i, j));
+                    q.add(new Tomato7576(i, j));
             }
         }
         System.out.println(bfs());
@@ -44,7 +44,7 @@ public class BOJ7576 {
 
     public static int bfs() {
         while(!q.isEmpty()) {
-            Tomato t = q.poll();
+            Tomato7576 t = q.poll();
             int x = t.x;
             int y = t.y;
 
@@ -53,7 +53,7 @@ public class BOJ7576 {
                 int cy = y + dy[i];
 
                 if(-1 < cx && cx < n && -1 < cy && cy < m && board[cx][cy] == 0) {
-                    q.add(new Tomato(cx, cy));
+                    q.add(new Tomato7576(cx, cy));
                     board[cx][cy] = board[x][y] + 1;
                 }
             }

@@ -2,11 +2,11 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 
-class Info {
+class Info18809 {
     int time;
     int type;
 
-    Info(int time, int type) {
+    Info18809(int time, int type) {
         this.time = time;
         this.type = type; 
     }
@@ -92,17 +92,17 @@ public class BOJ18809 {
 
     private static void bfs() {
         Queue<Point> q = new LinkedList<>();
-        Info[][] status = new Info[n][m];
+        Info18809[][] status = new Info18809[n][m];
 
         for(int i = 0; i < g; i++) {
             Point p = possible.get(green.get(i));
-            status[p.x][p.y] = new Info(0, GREEN);
+            status[p.x][p.y] = new Info18809(0, GREEN);
             q.offer(p);
         }
 
         for(int i = 0; i < r; i++) {
             Point p = possible.get(red.get(i));
-            status[p.x][p.y] = new Info(0, RED);
+            status[p.x][p.y] = new Info18809(0, RED);
             q.offer(p);
         }
 
@@ -122,7 +122,7 @@ public class BOJ18809 {
 
                 if(isIn(cx, cy) && map[cx][cy] != 0) {
                     if(status[cx][cy] == null) {
-                        status[cx][cy] = new Info(curTime+1, curType);
+                        status[cx][cy] = new Info18809(curTime+1, curType);
                         q.offer(new Point(cx, cy));
                     } else if(status[cx][cy].type == GREEN) {
                         if(curType == RED && status[cx][cy].time == curTime+1) {

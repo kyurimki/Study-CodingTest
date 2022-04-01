@@ -1,18 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-class Title {
+class Title19637 {
     String name;
     int ceiling;
 
-    public Title(String name, int ceiling) {
+    public Title19637(String name, int ceiling) {
         this.name = name;
         this.ceiling = ceiling;
     }
 }
 
 public class BOJ19637 {
-    static ArrayList<Title> list;
+    static ArrayList<Title19637> list;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -23,7 +23,7 @@ public class BOJ19637 {
         list = new ArrayList<>();
         while(n-- > 0) {
             input = br.readLine().split(" ");
-            list.add(new Title(input[0], Integer.parseInt(input[1])));
+            list.add(new Title19637(input[0], Integer.parseInt(input[1])));
         }
 
         while(m-- > 0) {

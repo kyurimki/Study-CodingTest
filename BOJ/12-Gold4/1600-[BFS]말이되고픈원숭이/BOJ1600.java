@@ -1,10 +1,10 @@
 import java.io.*;
 import java.util.*;
 
-class Monkey {
+class Monkey1600 {
     int x, y, k, cnt;
     
-    public Monkey(int x, int y, int k, int cnt) {
+    public Monkey1600(int x, int y, int k, int cnt) {
         this.x = x;
         this.y = y;
         this.k = k;
@@ -42,12 +42,12 @@ public class BOJ1600 {
     }
 
     private static int bfs() {
-        Queue<Monkey> q = new LinkedList<>();
-        q.offer(new Monkey(0, 0, 0, 0));
+        Queue<Monkey1600> q = new LinkedList<>();
+        q.offer(new Monkey1600(0, 0, 0, 0));
         visited[0][0][0] = true;
 
         while(!q.isEmpty()) {
-            Monkey p = q.poll();
+            Monkey1600 p = q.poll();
             if(p.x == H-1 && p.y == W-1) return p.cnt;
             
             if(p.k < K) {
@@ -57,7 +57,7 @@ public class BOJ1600 {
 
                     if(isIn(cx, cy) && !visited[cx][cy][p.k+1] && map[cx][cy] == 0) {
                         visited[cx][cy][p.k+1] = true;
-                        q.offer(new Monkey(cx, cy, p.k+1, p.cnt+1));
+                        q.offer(new Monkey1600(cx, cy, p.k+1, p.cnt+1));
                     }
                 }
             }
@@ -68,7 +68,7 @@ public class BOJ1600 {
 
                 if(isIn(cx, cy) && !visited[cx][cy][p.k] && map[cx][cy] == 0) {
                     visited[cx][cy][p.k] = true;
-                    q.offer(new Monkey(cx, cy, p.k, p.cnt+1));
+                    q.offer(new Monkey1600(cx, cy, p.k, p.cnt+1));
                 }
             }
         }

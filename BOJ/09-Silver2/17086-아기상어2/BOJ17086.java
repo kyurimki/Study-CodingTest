@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-class Shark {
+class Shark17086 {
     int x;
     int y;
 
-    public Shark(int x, int y) {
+    public Shark17086(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -24,7 +24,7 @@ public class BOJ17086 {
     
     static int[][] space;
     static int[][] dist;
-    static List<Shark> sharks;
+    static List<Shark17086> sharks;
     static int max = Integer.MIN_VALUE;
     
     public static void main(String[] args) throws IOException {
@@ -37,13 +37,13 @@ public class BOJ17086 {
 
         space = new int[n][m];
         dist = new int[n][m];
-        sharks = new ArrayList<Shark>();
+        sharks = new ArrayList<Shark17086>();
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j = 0; j < m; j++) {
                 space[i][j] = Integer.parseInt(st.nextToken());
                 if(space[i][j] == 1) {
-                    sharks.add(new Shark(i, j));
+                    sharks.add(new Shark17086(i, j));
                     dist[i][j] = -1;
                 } else 
                     dist[i][j] = Integer.MAX_VALUE;
@@ -64,7 +64,7 @@ public class BOJ17086 {
             for(int j = 0; j < m; j++) {
                 if(space[i][j] != 1) {
                     for(int k = 0; k < sharks.size(); k++) {
-                        Shark s = sharks.get(k);
+                        Shark17086 s = sharks.get(k);
                         int x = s.getX();
                         int y = s.getY();
     

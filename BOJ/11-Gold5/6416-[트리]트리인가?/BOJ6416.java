@@ -1,17 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-class Node {
+class Node6416 {
     int u, v;
 
-    public Node(int u, int v) {
+    public Node6416(int u, int v) {
         this.u = u;
         this.v = v;
     }
 }
 
 public class BOJ6416 {
-    static Queue<Node> list;
+    static Queue<Node6416> list;
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder();
@@ -26,7 +26,7 @@ public class BOJ6416 {
 
             int max = 0;
             while(u != 0 && v != 0) {
-                list.add(new Node(u, v));
+                list.add(new Node6416(u, v));
 
                 max = Math.max(max, u);
                 max = Math.max(max, v);
@@ -44,12 +44,12 @@ public class BOJ6416 {
         System.out.print(sb);
     }
 
-    private static boolean isTree(Queue<Node> list, int max) {
+    private static boolean isTree(Queue<Node6416> list, int max) {
         if(list.size() == 0) return true;
         int[][] edges = new int[max+1][2];
 
         while(!list.isEmpty()) {
-            Node n = list.poll();
+            Node6416 n = list.poll();
             if(edges[n.v][0] != 0) return false;
             edges[n.v][0] = n.u;
             edges[n.u][1]++;

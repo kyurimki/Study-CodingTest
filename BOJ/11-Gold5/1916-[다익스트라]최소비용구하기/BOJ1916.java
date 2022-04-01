@@ -2,23 +2,23 @@ import java.io.*;
 import java.util.*;
 import java.awt.Point;
 
-class RouteInfo implements Comparable<RouteInfo> {
+class RouteInfo1916 implements Comparable<RouteInfo1916> {
     int end, weight;
 
-    RouteInfo(int end, int weight) {
+    RouteInfo1916(int end, int weight) {
         this.end = end;
         this.weight = weight;
     }
 
     @Override
-    public int compareTo(RouteInfo o) {
+    public int compareTo(RouteInfo1916 o) {
         return this.weight-o.weight;
     }
 }
 
 public class BOJ1916 {
     static int N, M;
-    static ArrayList<ArrayList<RouteInfo>> list;
+    static ArrayList<ArrayList<RouteInfo1916>> list;
     static int[] dist;
     static boolean[] visited;
     static Point point;
@@ -36,7 +36,7 @@ public class BOJ1916 {
         visited = new boolean[N+1];
         
         for(int i = 0; i <= N; i++)
-            list.add(new ArrayList<RouteInfo>());
+            list.add(new ArrayList<RouteInfo1916>());
         
         for(int i = 0; i < M; i++) {
             st = new StringTokenizer(br.readLine());
@@ -44,7 +44,7 @@ public class BOJ1916 {
             int end = Integer.parseInt(st.nextToken());
             int weight = Integer.parseInt(st.nextToken());
 
-            list.get(start).add(new RouteInfo(end, weight));
+            list.get(start).add(new RouteInfo1916(end, weight));
         }
 
         point = new Point(0, 0);
@@ -56,21 +56,21 @@ public class BOJ1916 {
     }
 
     private static int dijakstra() {
-        PriorityQueue<RouteInfo> pq = new PriorityQueue<>();
-        pq.offer(new RouteInfo(point.x, 0));
+        PriorityQueue<RouteInfo1916> pq = new PriorityQueue<>();
+        pq.offer(new RouteInfo1916(point.x, 0));
         dist[point.x] = 0;
 
         while(!pq.isEmpty()) {
-            RouteInfo RouteInfo = pq.poll();
-            int cur = RouteInfo.end;
+            RouteInfo1916 RouteInfo1916 = pq.poll();
+            int cur = RouteInfo1916.end;
 
             if(!visited[cur]) {
                 visited[cur] = true;
 
-                for(RouteInfo r : list.get(cur)) {
+                for(RouteInfo1916 r : list.get(cur)) {
                     if(!visited[r.end] && dist[r.end] > dist[cur] + r.weight) {
                         dist[r.end] = dist[cur] + r.weight;
-                        pq.add(new RouteInfo(r.end, dist[r.end]));
+                        pq.add(new RouteInfo1916(r.end, dist[r.end]));
                     }
                 }
             }

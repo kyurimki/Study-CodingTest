@@ -1,17 +1,17 @@
 import java.io.*;
 import java.util.*;
 
-class Point implements Comparable<Point> {
+class Point4485 implements Comparable<Point4485> {
     int from, to, weight;
 
-    Point(int from, int to, int weight) {
+    Point4485(int from, int to, int weight) {
         this.from = from;
         this.to = to;
         this.weight = weight;
     }
 
     @Override
-    public int compareTo(Point o) {
+    public int compareTo(Point4485 o) {
         return this.weight-o.weight;
     }
 }
@@ -51,11 +51,11 @@ public class BOJ4485 {
     private static int dijakstra() {
         distance[0][0] = rupees[0][0];
 
-        PriorityQueue<Point> pq = new PriorityQueue<>();
-        pq.add(new Point(0, 0, distance[0][0]));
+        PriorityQueue<Point4485> pq = new PriorityQueue<>();
+        pq.add(new Point4485(0, 0, distance[0][0]));
 
         while(!pq.isEmpty()) {
-            Point p = pq.poll();
+            Point4485 p = pq.poll();
 
             for(int i = 0; i < 4; i++) {
                 int cx = p.from + dx[i];
@@ -64,7 +64,7 @@ public class BOJ4485 {
                 if(cx < 0 || cx >= N || cy < 0 || cy >= N) continue;
                 if(distance[cx][cy] > distance[p.from][p.to] + rupees[cx][cy]) {
                     distance[cx][cy] = distance[p.from][p.to] + rupees[cx][cy];
-                    pq.add(new Point(cx, cy, distance[cx][cy]));
+                    pq.add(new Point4485(cx, cy, distance[cx][cy]));
                 }
             }
         }

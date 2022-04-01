@@ -2,10 +2,10 @@ import java.io.*;
 import java.util.*;
 import java.awt.*;
 
-class Fish {
+class Fish23290 {
     int x, y, d;
 
-    public Fish(int x, int y, int d) {
+    public Fish23290(int x, int y, int d) {
         this.x = x;
         this.y = y;
         this.d = d;
@@ -13,7 +13,7 @@ class Fish {
 }
 
 public class BOJ23290 {
-    static Queue<Fish> fishList;
+    static Queue<Fish23290> fishList;
     static Point shark;
     static Queue<Integer>[][] fishBoard;
     static Queue<Integer>[][] smell;
@@ -75,7 +75,7 @@ public class BOJ23290 {
                 int fsize = fishBoard[i][j].size();
                 for(int k = 0; k < fsize; k++) {
                     int d = fishBoard[i][j].poll();
-                    fishList.offer(new Fish(i, j, d));
+                    fishList.offer(new Fish23290(i, j, d));
                     fishBoard[i][j].offer(d);
                 }
             }
@@ -120,7 +120,7 @@ public class BOJ23290 {
         }
         // 5. 물고기 복제 완료
         while(!fishList.isEmpty()) {
-            Fish f = fishList.poll();
+            Fish23290 f = fishList.poll();
             fishBoard[f.x][f.y].offer(f.d);
         }
     }

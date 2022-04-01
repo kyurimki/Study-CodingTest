@@ -1,11 +1,11 @@
 import java.io.*;
 import java.util.*;
 
-class Land {
+class Land16235 {
     int nutri;
     PriorityQueue<Integer> trees;
 
-    public Land() {
+    public Land16235() {
         this.nutri = 5;
         trees = new PriorityQueue<>();
     }
@@ -14,7 +14,7 @@ class Land {
 public class BOJ16235 {
     static int n, m, k;
     static int[][] A;
-    static Land[][] field;
+    static Land16235[][] field;
 
     static int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
     static int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
@@ -29,12 +29,12 @@ public class BOJ16235 {
         k = Integer.parseInt(st.nextToken());
         
         A = new int[n+1][n+1];
-        field = new Land[n+1][n+1];
+        field = new Land16235[n+1][n+1];
         for(int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
             for(int j = 1; j <= n; j++) {
                 A[i][j] = Integer.parseInt(st.nextToken());
-                field[i][j] = new Land();
+                field[i][j] = new Land16235();
             }
         }
 
@@ -68,7 +68,7 @@ public class BOJ16235 {
 
         for(int i = 1; i <= n; i++) {
             for(int j = 1; j <= n; j++) {
-                Land land = field[i][j];
+                Land16235 land = field[i][j];
                 PriorityQueue<Integer> tmp = new PriorityQueue<>();
                 int breedableCount = 0;
                 while(!land.trees.isEmpty() && land.nutri - land.trees.peek() >= 0) {
@@ -78,15 +78,15 @@ public class BOJ16235 {
                     if((age+1) % 5 == 0)
                         breedableCount += 1;
 
-                    land.nutri -= age;
+                        land.nutri -= age;
                 }
 
                 int deadNutri = 0;
                 while(!land.trees.isEmpty())
                     deadNutri += (int)(land.trees.poll()/2);
                 
-                land.trees = tmp;
-                land.nutri += deadNutri;
+                    land.trees = tmp;
+                    land.nutri += deadNutri;
                 breedable[i][j] = breedableCount;
             }
         }
