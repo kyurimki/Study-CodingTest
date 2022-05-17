@@ -1,23 +1,9 @@
 import java.io.*;
 import java.util.*;
 
-class Node1197 implements Comparable<Node1197> {
-    int to, weight;
-
-    public Node1197(int to, int weight) {
-        this.to = to;
-        this.weight = weight;
-    }
-
-    @Override
-    public int compareTo(Node1197 o) {
-        return Integer.compare(this.weight, o.weight);
-    }
-}
-
 public class BOJ1197 {
     static int V, E;
-    static ArrayList<Node1197>[] list;
+    static ArrayList<Node>[] list;
 
     static long sum = 0;
 
@@ -38,8 +24,8 @@ public class BOJ1197 {
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
             int C = Integer.parseInt(st.nextToken());
-            list[A].add(new Node1197(B, C));
-            list[B].add(new Node1197(A, C));
+            list[A].add(new Node(B, C));
+            list[B].add(new Node(A, C));
         }
 
         prim();
@@ -48,22 +34,22 @@ public class BOJ1197 {
 
     private static void prim() {
         boolean[] visited = new boolean[V+1];
-        PriorityQueue<Node1197> pq = new PriorityQueue<>();
-        pq.add(new Node1197(1, 0));
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(new Node(1, 0));
 
         int cnt = 0;
         while(!pq.isEmpty()) {
-            Node1197 node = pq.poll();
-            if(visited[node.to]) continue;
+            Node node = pq.poll();
+            if(visited[node.end]) continue;
 
-            visited[node.to] = true;
+            visited[node.end] = true;
             sum += node.weight;
             
             if(++cnt == V) break;
 
-            for(int i = 0; i < list[node.to].size(); i++) {
-                Node1197 next = list[node.to].get(i);
-                if(visited[next.to]) continue;
+            for(int i = 0; i < list[node.end].size(); i++) {
+                Node next = list[node.end].get(i);
+                if(visited[next.end]) continue;
 
                 pq.add(next);
             }

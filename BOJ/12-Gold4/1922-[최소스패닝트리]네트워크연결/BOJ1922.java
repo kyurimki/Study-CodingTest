@@ -1,23 +1,9 @@
 import java.io.*;
 import java.util.*;
 
-class Node1922 implements Comparable<Node1922> {
-    int to, w;
-
-    public Node1922(int to, int w) {
-        this.to = to;
-        this.w = w;
-    }
-
-    @Override
-    public int compareTo(Node1922 o) {
-        return Integer.compare(this.w, o.w);
-    }
-}
-
 public class BOJ1922 {
     static int N, M;
-    static ArrayList<Node1922>[] list;
+    static ArrayList<Node>[] list;
 
     static int sum = 0;
     
@@ -38,8 +24,8 @@ public class BOJ1922 {
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
-            list[a].add(new Node1922(b, c));
-            list[b].add(new Node1922(a, c));
+            list[a].add(new Node(b, c));
+            list[b].add(new Node(a, c));
         }
         prim();
         System.out.println(sum);
@@ -47,22 +33,22 @@ public class BOJ1922 {
 
     private static void prim() {
         boolean[] visited = new boolean[N+1];
-        PriorityQueue<Node1922> pq = new PriorityQueue<>();
-        pq.add(new Node1922(1, 0));
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(new Node(1, 0));
 
         int cnt = 0;
         while(!pq.isEmpty()) {
-            Node1922 node = pq.poll();
+            Node node = pq.poll();
 
-            if(visited[node.to]) continue;
-            visited[node.to] = true;
-            sum += node.w;
+            if(visited[node.end]) continue;
+            visited[node.end] = true;
+            sum += node.weight;
 
             if(++cnt == N) break;
 
-            for(int i = 0; i < list[node.to].size(); i++) {
-                Node1922 next = list[node.to].get(i);
-                if(visited[next.to]) continue;
+            for(int i = 0; i < list[node.end].size(); i++) {
+                Node next = list[node.end].get(i);
+                if(visited[next.end]) continue;
 
                 pq.offer(next);
             }

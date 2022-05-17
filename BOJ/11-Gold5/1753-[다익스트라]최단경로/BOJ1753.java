@@ -1,28 +1,16 @@
 import java.io.*;
 import java.util.*;
 
-class Node1753 implements Comparable<Node1753> {
-    int vertex, weight;
 
-    public Node1753(int vertex, int weight) {
-        this.vertex = vertex;
-        this.weight = weight;
-    }
-
-    public int compareTo(Node1753 o) {
-        return this.weight-o.weight;
-    }
-}
-
-@SuppressWarnings("unchecked")
 public class BOJ1753 {
     static int V, E, K;
-    static ArrayList<Node1753>[] matrix;
+    static ArrayList<Node>[] matrix;
     static int[] dist;
     static boolean[] visited;
 
     static int INF = Integer.MAX_VALUE;
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));   
@@ -48,7 +36,7 @@ public class BOJ1753 {
             int v = Integer.parseInt(st.nextToken()); // to
             int w = Integer.parseInt(st.nextToken()); // 가중치
 
-            matrix[u].add(new Node1753(v, w));
+            matrix[u].add(new Node(v, w));
         }
 
         dijkstra();
@@ -64,20 +52,20 @@ public class BOJ1753 {
     }
 
     private static void dijkstra() {
-        PriorityQueue<Node1753> pq = new PriorityQueue<>();
-        pq.add(new Node1753(K, 0));
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        pq.add(new Node(K, 0));
 
         while(!pq.isEmpty()) {
-            Node1753 n = pq.poll();
-            if(visited[n.vertex])
+            Node n = pq.poll();
+            if(visited[n.end])
                 continue;
             
-            visited[n.vertex] = true;
+            visited[n.end] = true;
 
-            for(Node1753 o : matrix[n.vertex]) {
-                if(dist[o.vertex] > dist[n.vertex] + o.weight) {
-                    dist[o.vertex] = dist[n.vertex] + o.weight;
-                    pq.add(new Node1753(o.vertex, dist[o.vertex]));
+            for(Node o : matrix[n.end]) {
+                if(dist[o.end] > dist[n.end] + o.weight) {
+                    dist[o.end] = dist[n.end] + o.weight;
+                    pq.add(new Node(o.end, dist[o.end]));
                 }
             }
         }
