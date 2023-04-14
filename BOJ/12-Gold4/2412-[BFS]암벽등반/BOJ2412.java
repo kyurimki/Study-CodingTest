@@ -16,8 +16,7 @@ public class BOJ2412 {
         T = Integer.parseInt(st.nextToken());
 
         furrow = new ArrayList[SIZE];
-        for(int i = 0; i < SIZE; i++)
-            furrow[i] = new ArrayList<>();
+        for(int i = 0; i < SIZE; i++) furrow[i] = new ArrayList<>();
             
         for(int i = 0; i < n; i++) {
             st = new StringTokenizer(br.readLine());
@@ -25,8 +24,7 @@ public class BOJ2412 {
             int y = Integer.parseInt(st.nextToken());
             furrow[y].add(x);
         }
-        for(int i = 0; i < SIZE; i++)
-            Collections.sort(furrow[i]);
+        for(int i = 0; i < SIZE; i++) Collections.sort(furrow[i]);
 
         System.out.println(climb());
     }
@@ -47,8 +45,8 @@ public class BOJ2412 {
                     for(int j = 0; j < furrow[y].size(); j++) {
                         int x = furrow[y].get(j);
                         if(x - p.x > 2) break;
-                        else if(p.x - x < 2) continue;
-
+                        if(p.x - x > 2) continue;
+                        
                         q.add(new Point(x, y));
                         furrow[y].remove(j);
                         j--;
@@ -57,7 +55,6 @@ public class BOJ2412 {
             }
             move++;
         }
-        System.out.println(move);
         return -1;
     }
 }
